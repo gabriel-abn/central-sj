@@ -28,7 +28,7 @@ export class Tarefa extends Entity<TarefaProps> {
 
   public static create(props: TarefaProps): Tarefa {
     var errors: string[] = [];
-    if (props.dataCriacao < props.dataConclusao) {
+    if (props.dataCriacao >= props.dataConclusao) {
       errors.push("data de conclusao invalida");
     }
 
