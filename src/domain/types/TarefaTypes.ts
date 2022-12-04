@@ -10,7 +10,7 @@ export type TarefaProps = {
   id: string;
   nome: string;
   responsavel: string[];
-  dataConclusao: string;
-  dataCriacao: string;
+  dataConclusao: Date;
+  dataCriacao: Date;
   status: string;
 };

@@ -23,7 +23,7 @@ export class Tarefa extends Entity<TarefaProps> {
 
   public setTarefaAsDone() {
     this.props.status = StatusEnum.CONCLUIDO;
-    this.props.dataConclusao = new Date(Date.now()).toISOString();
+    this.props.dataConclusao = new Date(Date.now());
   }
 
   public static create(props: TarefaProps): Tarefa {
