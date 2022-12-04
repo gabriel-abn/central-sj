@@ -9,8 +9,8 @@ export enum StatusEnum {
 export type TarefaProps = {
   id: string;
   nome: string;
-  responsavel: string;
+  responsavel: string[];
   dataConclusao: string;
   dataCriacao: string;
-  status: string;
+  status?: string;
 };
