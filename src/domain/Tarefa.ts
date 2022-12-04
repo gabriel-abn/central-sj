@@ -1,4 +1,5 @@
 import { Entity } from "./common/Entity";
+import { DomainError } from "./errors/DomainError";
 import { StatusEnum, TarefaProps } from "./types/TarefaTypes";
 
 export class Tarefa extends Entity<TarefaProps> {
@@ -26,7 +27,19 @@ export class Tarefa extends Entity<TarefaProps> {
   }
 
   public static create(props: TarefaProps): Tarefa {
-    props.status = StatusEnum.NAO_INICIADO;
+    var errors: string[] = [];
+    if (props.dataCriacao < props.dataConclusao) {
+      errors.push("data de conclusao invalida");
+    }
+
+    if (!props.responsavel) {
+      errors.push("sem responsavel para tarefa");
+    }
+
+    if (errors.length > 0) {
+      throw new DomainError(errors);
+    }
+
     return new Tarefa({ ...props });
   }
 }

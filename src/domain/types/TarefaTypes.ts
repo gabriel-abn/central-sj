@@ -12,5 +12,5 @@ export type TarefaProps = {
   responsavel: string[];
   dataConclusao: string;
   dataCriacao: string;
-  status?: string;
+  status: string;
 };
